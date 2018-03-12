@@ -20,11 +20,12 @@ class SearchBooks extends Component {
     searchBooks = (query) => {
         BooksAPI.search(query).then((response) => {
             this.setState({ books: "error" in response ? [] : response });
-        });
-        console.log(this.state.books)
+        }).catch((books) => {
+            this.setState({books: []})
+        }) 
       }    
     render() {
-        const { title, menu, books } = this.props;
+        const { title, update } = this.props;
         
         return (
             <div className="search-books">
@@ -40,7 +41,7 @@ class SearchBooks extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.books && (
-                            <ListBooks title={title} menu={menu} books={this.state.books} />
+                            <ListBooks title={title} books={this.state.books} update={update} />
                         )}
                     </ol>
                 </div>

@@ -7,7 +7,7 @@ import sortBy from 'sort-by';
 class ListBooks extends Component {
   
     render() {
-        const {title, filter, menu, books} = this.props;
+        const {title, filter, books, getStatus, update} = this.props;
         //console.log('Props', this.props);
         
         let showingBooks = books;
@@ -28,7 +28,7 @@ class ListBooks extends Component {
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail})` }}></div>
-                                        <BookOptions menu={menu} />
+                                        <BookOptions update={update} book={book}/>
                                     </div>
                                     <div className="book-title">{book.title}</div>
                                     {book.authors && book.authors.map((item) => 
