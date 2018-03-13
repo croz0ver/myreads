@@ -23,10 +23,10 @@ class SearchBooks extends Component {
         }).catch((books) => {
             this.setState({books: []})
         }) 
-      }    
+    }
+  
     render() {
-        const { title, update } = this.props;
-        
+        const { title, update, books } = this.props;
         return (
             <div className="search-books">
                 <div className="search-books-bar">
@@ -41,7 +41,7 @@ class SearchBooks extends Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         {this.state.books && (
-                            <ListBooks title={title} books={this.state.books} update={update} />
+                            <ListBooks title={title} books={this.state.books} update={update} bookList={books}/>
                         )}
                     </ol>
                 </div>

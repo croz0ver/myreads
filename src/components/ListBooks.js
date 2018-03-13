@@ -5,10 +5,17 @@ import sortBy from 'sort-by';
 
 
 class ListBooks extends Component {
-  
+    findBooks(books, book){
+        let ret = 'None';
+        books.map((b) => {
+            if(b.id === book.id){
+                ret = b.shelf;
+            }
+        });
+        return ret;
+    }  
     render() {
-        const {title, filter, books, getStatus, update} = this.props;
-        //console.log('Props', this.props);
+        const {title, filter, books, getStatus, update, bookList} = this.props;
         
         let showingBooks = books;
         if(filter) {
@@ -28,7 +35,7 @@ class ListBooks extends Component {
                                 <div className="book">
                                     <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks && book.imageLinks.thumbnail})` }}></div>
-                                        <BookOptions update={update} book={book}/>
+                                        <BookOptions update={update} book={book} sel={book.shelf ? book.shelf : this.findBooks(bookList, book)}/>
                                     </div>
                                     <div className="book-title">{book.title}</div>
                                     {book.authors && book.authors.map((item) => 

@@ -31,10 +31,10 @@ const menuOptions = [
 
 export default class BookOptions extends Component {
     render() {
-        const {update, book } = this.props;
+        const {update, book, sel } = this.props;
         return (
             <div className="book-shelf-changer">
-            <select name="meni-options" defaultValue={book.shelf ? book.shelf: 'None'} onChange={(event) => update(book, event.target.value)}>
+            <select name="meni-options" defaultValue={sel} onChange={(event) => update(book, event.target.value)}>
                 {menuOptions && menuOptions.map((item) => 
                     <option key={item.value}  value={item.value} disabled={item.disable}>
                         {item.title}
