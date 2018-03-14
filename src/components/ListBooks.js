@@ -7,7 +7,7 @@ import sortBy from 'sort-by';
 class ListBooks extends Component {
     findBooks(books, book){
         let ret = 'None';
-        books.map((b) => {
+        books.forEach((b) => {
             if(b.id === book.id){
                 ret = b.shelf;
             }
@@ -15,7 +15,7 @@ class ListBooks extends Component {
         return ret;
     }  
     render() {
-        const {title, filter, books, getStatus, update, bookList} = this.props;
+        const {title, filter, books, update, bookList} = this.props;
         
         let showingBooks = books;
         if(filter) {

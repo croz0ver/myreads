@@ -2,29 +2,29 @@ import React, { Component } from 'react';
 
 const menuOptions = [
     {
-      "value": "none", 
-      "disable": "disabled",
-      "title": "Move to...",
+      value: "none", 
+      disable: "disabled",
+      title: "Move to...",
     },
     {
-      "value": "currentlyReading", 
-      "disable": "",
-      "title": "Currently Reading"
+      value: "currentlyReading", 
+      disable: "",
+      title: "Currently Reading"
     },
     {
-      "value": "wantToRead", 
-      "disable": "",
-      "title": "Want to Read",
+      value: "wantToRead", 
+      disable: "",
+      title: "Want to Read",
     },
     {
-      "value": "read", 
-      "disable": "",
-      "title": "Read",
+      value: "read", 
+      disable: "",
+      title: "Read",
     },
     {
-      "value": "None", 
-      "disable": "",
-      "title": "None",
+      value: "None", 
+      disable: "",
+      title: "None",
     }
   ]
 
