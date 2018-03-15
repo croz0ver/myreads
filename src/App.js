@@ -31,6 +31,10 @@ class BooksApp extends React.Component {
             })
          }
       })
+      book.shelf = shelf
+      this.setState(state => ({
+         books: state.books.filter(b => b.id !== book.id).concat([ book ]),
+      }))
    }
    getBookStatus(book) {
       let id = book.id
